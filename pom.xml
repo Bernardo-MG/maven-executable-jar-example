@@ -80,10 +80,8 @@
    <profiles>
       <profile>
          <!-- Profile for the Eclipse Maven plugin -->
-         <!-- Sets the POM so this plugin does not give the usual unregistered goals
-            errors -->
-         <!-- It will be activated automatically on Eclipse if this has the m2e plugin,
-            by detecting the version property -->
+         <!-- Sets the POM so this plugin does not give the usual unregistered goals errors -->
+         <!-- It will be activated automatically on Eclipse if this has the m2e plugin, by detecting the version property -->
          <id>eclipse-maven</id>
          <activation>
             <property>
@@ -96,20 +94,16 @@
                   <plugin>
                      <!-- m2e lifecycle mapping -->
                      <!-- This is used to configure the Maven plugin for Eclipse. -->
-                     <!-- Among other things, it allows registering goals, which
-                        Eclipse would otherwise reject. -->
+                     <!-- Among other things, it allows registering goals, which Eclipse would otherwise reject. -->
                      <!-- It has no real effect on Maven. -->
                      <groupId>org.eclipse.m2e</groupId>
                      <artifactId>lifecycle-mapping</artifactId>
                      <version>${plugin.lifecycle.version}</version>
                      <configuration>
                         <!-- Sample fix for plugin executions. -->
-                        <!-- This is to be used in case a Maven plugin gives problems
-                           in Eclipse -->
-                        <!-- <lifecycleMappingMetadata> <pluginExecutions> <pluginExecution>
-                           <pluginExecutionFilter> <groupId>org.jacoco</groupId> <artifactId>jacoco-maven-plugin</artifactId>
-                           <versionRange>[0.5,)</versionRange> <goals> <goal>prepare-agent</goal> </goals> </pluginExecutionFilter>
-                           <action> <ignore /> </action> </pluginExecution> </pluginExecutions> </lifecycleMappingMetadata> -->
+                        <!-- This is to be used in case a Maven plugin gives problems in Eclipse -->
+                        <!-- <lifecycleMappingMetadata> <pluginExecutions> <pluginExecution> <pluginExecutionFilter> <groupId>org.jacoco</groupId> <artifactId>jacoco-maven-plugin</artifactId> <versionRange>[0.5,)</versionRange> 
+                           <goals> <goal>prepare-agent</goal> </goals> </pluginExecutionFilter> <action> <ignore /> </action> </pluginExecution> </pluginExecutions> </lifecycleMappingMetadata> -->
                         <downloadSources>true</downloadSources>
                         <downloadJavadocs>true</downloadJavadocs>
                      </configuration>
@@ -209,6 +203,10 @@
       <log4j.version>2.13.3</log4j.version>
       <slf4j.version>1.7.30</slf4j.version>
       <!-- ============================================== -->
+      <!-- ============== PLUGINS VERSIONS ============== -->
+      <!-- ============================================== -->
+      <plugin.executable.version>3.0.0</plugin.executable.version>
+      <!-- ============================================== -->
       <!-- ================= MAVEN SITE ================= -->
       <!-- ============================================== -->
       <site.skin.version>2.0.7</site.skin.version>
@@ -293,7 +291,81 @@
 
    <build>
       <defaultGoal>clean package install</defaultGoal>
+      <pluginManagement>
+         <plugins>
+            <plugin>
+               <!-- Executable -->
+               <!-- Generates executable jars. -->
+               <groupId>org.codehaus.mojo</groupId>
+               <artifactId>exec-maven-plugin</artifactId>
+               <version>${plugin.executable.version}</version>
+            </plugin>
+         </plugins>
+      </pluginManagement>
       <plugins>
+         <plugin>
+            <!-- Compiler -->
+            <!-- Compiles the source code. -->
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+               <mainClass>es.seresco.dms.tools.Main</mainClass>
+            </configuration>
+         </plugin>
+         <plugin>
+            <!-- Jar -->
+            <!-- Generates the JAR package. -->
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <configuration>
+               <archive>
+                  <index>true</index>
+                  <manifest>
+                     <classpathPrefix>lib/</classpathPrefix>
+                     <addClasspath>true</addClasspath>
+                     <mainClass>es.seresco.dms.tools.Main</mainClass>
+                  </manifest>
+               </archive>
+            </configuration>
+         </plugin>
+         <plugin>
+            <!-- Dependency -->
+            <!-- Copies and manipulates the project dependencies. -->
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <executions>
+               <execution>
+                  <id>copy-dependencies</id>
+                  <phase>package</phase>
+                  <goals>
+                     <goal>copy-dependencies</goal>
+                  </goals>
+                  <configuration>
+                     <includeScope>runtime</includeScope>
+                     <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                     <overWriteReleases>true</overWriteReleases>
+                     <overWriteSnapshots>true</overWriteSnapshots>
+                     <overWriteIfNewer>true</overWriteIfNewer>
+                  </configuration>
+               </execution>
+            </executions>
+         </plugin>
+         <plugin>
+            <!-- Executable -->
+            <!-- Generates executable jars. -->
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <executions>
+               <execution>
+                  <goals>
+                     <goal>java</goal>
+                  </goals>
+               </execution>
+            </executions>
+            <configuration>
+               <mainClass>es.seresco.dms.tools.Main</mainClass>
+            </configuration>
+         </plugin>
          <plugin>
             <!-- Changes -->
             <!-- Takes care of the changes log -->
@@ -358,14 +430,14 @@
             </configuration>
          </plugin>
          <plugin>
-             <!-- FindBugs -->
-             <!-- Checks for patterns which are prone to errors -->
-             <groupId>org.codehaus.mojo</groupId>
-             <artifactId>findbugs-maven-plugin</artifactId>
-             <configuration>
-                 <!-- Exclusion patterns -->
-                 <excludeFilterFile>${project.basedir}/src/config/findbugs/findbugs-exclude.xml</excludeFilterFile>
-             </configuration>
+            <!-- FindBugs -->
+            <!-- Checks for patterns which are prone to errors -->
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>findbugs-maven-plugin</artifactId>
+            <configuration>
+               <!-- Exclusion patterns -->
+               <excludeFilterFile>${project.basedir}/src/config/findbugs/findbugs-exclude.xml</excludeFilterFile>
+            </configuration>
          </plugin>
          <plugin>
             <!-- Javadoc -->
