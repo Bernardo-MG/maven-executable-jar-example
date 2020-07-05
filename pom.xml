@@ -23,7 +23,7 @@
    <version>0.0.1-SNAPSHOT</version>
    <packaging>jar</packaging>
 
-   <name>Executable JAR example</name>
+   <name>Maven Executable JAR Example</name>
    <description>An example for setting up an executable JAR</description>
    <url>https://github.com/bernardo-mg/command-line-executable-jar</url>
    <inceptionYear>2020</inceptionYear>
@@ -284,7 +284,7 @@
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
             <configuration>
-               <mainClass>com.bernardomg.example.execjar.Main</mainClass>
+               <mainClass>com.bernardomg.example.execjar.maven.Main</mainClass>
             </configuration>
          </plugin>
          <plugin>
@@ -298,7 +298,7 @@
                   <manifest>
                      <classpathPrefix>lib/</classpathPrefix>
                      <addClasspath>true</addClasspath>
-                     <mainClass>com.bernardomg.example.execjar.Main</mainClass>
+                     <mainClass>com.bernardomg.example.execjar.maven.Main</mainClass>
                   </manifest>
                </archive>
             </configuration>
@@ -338,7 +338,7 @@
                </execution>
             </executions>
             <configuration>
-               <mainClass>com.bernardomg.example.execjar.Main</mainClass>
+               <mainClass>com.bernardomg.example.execjar.maven.Main</mainClass>
             </configuration>
          </plugin>
          <plugin>

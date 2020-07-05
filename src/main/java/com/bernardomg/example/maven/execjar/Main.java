@@ -1,5 +1,5 @@
 
-package com.bernardomg.example.execjar;
+package com.bernardomg.example.maven.execjar;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

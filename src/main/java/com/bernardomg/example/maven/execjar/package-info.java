@@ -25,4 +25,4 @@
  * The main executable.
  */
 
-package com.bernardomg.example.execjar;
+package com.bernardomg.example.maven.execjar;
