@@ -86,12 +86,12 @@ If you wish to fork or modify the code, visit the [GitHub project page][scm], wh
 
 The project has been released under the [MIT License][license].
 
-[bintray-repo]: https://bintray.com/bernardo-mg/maven/command-line-executable-jar/view
-[maven-repo]: http://mvnrepository.com/artifact/com.bernardomg.example/command-line-executable-jar
-[issues]: https://github.com/bernardo-mg/command-line-executable-jar/issues
-[javadoc-develop]: http://docs.bernardomg.com/development/maven/command-line-executable-jar/command-line-executable-jar/apidocs
-[javadoc-release]: http://docs.bernardomg.com/maven/command-line-executable-jar/command-line-executable-jar/apidocs
+[bintray-repo]: https://bintray.com/bernardo-mg/maven/maven-executable-jar-example/view
+[maven-repo]: http://mvnrepository.com/artifact/com.bernardomg.example/maven-executable-jar-example
+[issues]: https://github.com/bernardo-mg/maven-executable-jar-example/issues
+[javadoc-develop]: http://docs.bernardomg.com/development/maven/maven-executable-jar-example/maven-executable-jar-example/apidocs
+[javadoc-release]: http://docs.bernardomg.com/maven/maven-executable-jar-example/maven-executable-jar-example/apidocs
 [license]: https://www.opensource.org/licenses/mit-license.php
-[scm]: https://github.com/bernardo-mg/command-line-executable-jar
-[site-develop]: http://docs.bernardomg.com/development/maven/command-line-executable-jar/command-line-executable-jar
-[site-release]: http://docs.bernardomg.com/maven/command-line-executable-jar/command-line-executable-jar
+[scm]: https://github.com/bernardo-mg/maven-executable-jar-example
+[site-develop]: http://docs.bernardomg.com/development/maven/maven-executable-jar-example/maven-executable-jar-example
+[site-release]: http://docs.bernardomg.com/maven/maven-executable-jar-example/maven-executable-jar-example
