@@ -22,6 +22,10 @@ All it does is printing to the log.
 [![Release javadocs](https://img.shields.io/badge/javadocs-release-blue.svg)][javadoc-release]
 [![Development javadocs](https://img.shields.io/badge/javadocs-develop-blue.svg)][javadoc-develop]
 
+## Features
+
+- Executable JAR using only Maven
+
 ## Documentation
 
 Documentation is always generated for the latest release, kept in the 'master' branch:
