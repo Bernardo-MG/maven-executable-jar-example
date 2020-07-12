@@ -21,6 +21,9 @@ jobs:
         mkdir -p ~/.ssh/
         ssh-keyscan -H docs.bernardomg.com >> ~/.ssh/known_hosts
       shell: bash
+    - name: Extract branch name
+      shell: bash
+      run: echo "::set-env name=BRANCH_NAME::$(echo ${GITHUB_REF#refs/heads/} | sed 's/\//_/g')"
     - uses: actions/checkout@v2
     - name: Set up JDK 1.8
       uses: actions/setup-java@v1
@@ -29,7 +32,7 @@ jobs:
     - name: Set up Maven settings
       uses: Bernardo-MG/deployment-maven-settings-action@master
       with:
-        version-type: ${{ GITHUB_REF#refs/heads/ }}
+        version-type: ${{ BRANCH_NAME }}
       env:
         DEPLOY_DOCS_USER: ${{ secrets.DEPLOY_DOCS_USER }}
         DEPLOY_DOCS_PASSWORD: ${{ secrets.DEPLOY_DOCS_PASSWORD }}
