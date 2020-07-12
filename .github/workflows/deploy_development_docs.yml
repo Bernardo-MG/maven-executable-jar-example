@@ -23,7 +23,7 @@ jobs:
     - name: Set up Maven settings
       uses: Bernardo-MG/deployment-maven-settings-action@master
       with:
-        version-type: ${GITHUB_REF#refs/heads/}
+        version-type: ${{ GITHUB_REF#refs/heads/ }}
       env:
         DEPLOY_DOCS_USER: ${{ secrets.DEPLOY_DOCS_USER }}
         DEPLOY_DOCS_PASSWORD: ${{ secrets.DEPLOY_DOCS_PASSWORD }}
