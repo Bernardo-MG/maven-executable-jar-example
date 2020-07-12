@@ -20,7 +20,7 @@
 
    <groupId>com.bernardomg.example</groupId>
    <artifactId>maven-executable-jar-example</artifactId>
-   <version>0.0.1-SNAPSHOT</version>
+   <version>1.0.0</version>
    <packaging>jar</packaging>
 
    <name>Maven Executable JAR Example</name>
@@ -182,7 +182,7 @@
       <!-- ============================================== -->
       <!-- ============== PLUGINS VERSIONS ============== -->
       <!-- ============================================== -->
-      <plugin.executable.version>3.0.0</plugin.executable.version>
+      <plugin.shade.version>3.2.4</plugin.shade.version>
       <!-- ============================================== -->
       <!-- ================= MAVEN SITE ================= -->
       <!-- ============================================== -->
@@ -264,82 +264,17 @@
 
    <build>
       <defaultGoal>clean package install</defaultGoal>
-      <finalName>executable</finalName>
       <pluginManagement>
          <plugins>
             <plugin>
-               <!-- Executable -->
-               <!-- Generates executable jars. -->
-               <groupId>org.codehaus.mojo</groupId>
-               <artifactId>exec-maven-plugin</artifactId>
-               <version>${plugin.executable.version}</version>
+               <!-- Shade -->
+               <groupId>org.apache.maven.plugins</groupId>
+               <artifactId>maven-shade-plugin</artifactId>
+               <version>${plugin.shade.version}</version>
             </plugin>
          </plugins>
       </pluginManagement>
       <plugins>
-         <plugin>
-            <!-- Compiler -->
-            <!-- Compiles the source code. -->
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <configuration>
-               <mainClass>com.bernardomg.example.maven.execjar.Main</mainClass>
-            </configuration>
-         </plugin>
-         <plugin>
-            <!-- Jar -->
-            <!-- Generates the JAR package. -->
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-jar-plugin</artifactId>
-            <configuration>
-               <archive>
-                  <index>true</index>
-                  <manifest>
-                     <classpathPrefix>lib/</classpathPrefix>
-                     <addClasspath>true</addClasspath>
-                     <mainClass>com.bernardomg.example.maven.execjar.Main</mainClass>
-                  </manifest>
-               </archive>
-            </configuration>
-         </plugin>
-         <plugin>
-            <!-- Dependency -->
-            <!-- Copies and manipulates the project dependencies. -->
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-dependency-plugin</artifactId>
-            <executions>
-               <execution>
-                  <id>copy-dependencies</id>
-                  <phase>package</phase>
-                  <goals>
-                     <goal>copy-dependencies</goal>
-                  </goals>
-                  <configuration>
-                     <includeScope>runtime</includeScope>
-                     <outputDirectory>${project.build.directory}/lib</outputDirectory>
-                     <overWriteReleases>true</overWriteReleases>
-                     <overWriteSnapshots>true</overWriteSnapshots>
-                     <overWriteIfNewer>true</overWriteIfNewer>
-                  </configuration>
-               </execution>
-            </executions>
-         </plugin>
-         <plugin>
-            <!-- Executable -->
-            <!-- Generates executable jars. -->
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>exec-maven-plugin</artifactId>
-            <executions>
-               <execution>
-                  <goals>
-                     <goal>java</goal>
-                  </goals>
-               </execution>
-            </executions>
-            <configuration>
-               <mainClass>com.bernardomg.example.maven.execjar.Main</mainClass>
-            </configuration>
-         </plugin>
          <plugin>
             <!-- Changes -->
             <!-- Takes care of the changes log -->
@@ -363,6 +298,42 @@
                   </goals>
                   <configuration>
                      <failOnError>true</failOnError>
+                  </configuration>
+               </execution>
+            </executions>
+         </plugin>
+         <plugin>
+            <!-- Jar -->
+            <!-- Generates the JAR package. -->
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <configuration>
+               <archive>
+                  <index>true</index>
+                  <manifest>
+                     <addClasspath>true</addClasspath>
+                     <mainClass>com.bernardomg.example.maven.execjar.Main</mainClass>
+                  </manifest>
+               </archive>
+            </configuration>
+         </plugin>
+         <plugin>
+            <!-- Shade -->
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-shade-plugin</artifactId>
+            <executions>
+               <execution>
+                  <goals>
+                     <goal>shade</goal>
+                  </goals>
+                  <configuration>
+                     <finalName>executable</finalName>
+                     <shadedArtifactAttached>true</shadedArtifactAttached>
+                     <transformers>
+                        <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                           <mainClass>com.bernardomg.example.maven.execjar.Main</mainClass>
+                        </transformer>
+                     </transformers>
                   </configuration>
                </execution>
             </executions>
