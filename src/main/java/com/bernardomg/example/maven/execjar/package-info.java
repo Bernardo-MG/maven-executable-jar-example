@@ -21,35 +21,8 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
-package com.bernardomg.example.execjar;
-
 /**
- * Greeter class.
- * <p>
- * This is just a placeholder class which may be safely removed.
- * <p>
- * Pay attention to the fact that this is used on the placeholder tests too
- *
- * @author Bernardo Martínez Garrido
+ * The main executable.
  */
 
-public final class Greeter {
-
-    /**
-     * Default constructor.
-     */
-    public Greeter() {
-        super();
-    }
-
-    /**
-     * Returns a greeting.
-     *
-     * @return a greeting
-     */
-    public String sayHello() {
-        return "Hello World!";
-    }
-
-}
+package com.bernardomg.example.maven.execjar;

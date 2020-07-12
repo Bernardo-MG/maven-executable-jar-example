@@ -1,19 +1,20 @@
-# Executable JAR example
+# Maven Executable JAR Example
 
-This is a basic Maven-based Java project created with the use of the [Library Maven Archetype](https://github.com/Bernardo-MG/library-maven-archetype). It will ease the development of new libraries, setting it up for CI through the use of three free services: [Github](https://github.com/), [Travis](https://travis-ci.org) and [Bintray](https://bintray.com/).
+Sets up an executable JAR through Maven. All the configuration is applied in the POM, and the included Main class will be executed.
 
-Before beginning with the new project there are a few things which should be edited:
+To test the project first package it:
 
-- This readme's description has to be adapted to the new project.
-- Project info on the POM should be checked.
-- The various links on the readme, POM and Maven site (for repositories, issues, etc) should be verified.
-- The documentation on the project's [Maven Site](https://maven.apache.org/plugins/maven-site-plugin/) has to be written.
-- The license, if not using the MIT one, should be changed. Remember that this is referenced on the POM, readme and LICENSE files.
+```
+mvn clean package
+```
 
-Note that the Maven site is using the [Docs Maven Skin](https://github.com/Bernardo-MG/docs-maven-skin), which will have a few configuration requirements of its own.
+Afterwards the jar will be in the target folder. It can be run as any runnable jar:
 
-[![Maven Central](https://img.shields.io/maven-central/v/com.bernardomg.example/command-line-executable-jar.svg)][maven-repo]
-[![Bintray](https://api.bintray.com/packages/bernardo-mg/maven/command-line-executable-jar/images/download.svg)][bintray-repo]
+```
+java -jar target/executable.jar
+```
+
+All it does is printing to the log.
 
 [![Release docs](https://img.shields.io/badge/docs-release-blue.svg)][site-release]
 [![Development docs](https://img.shields.io/badge/docs-develop-blue.svg)][site-develop]
@@ -23,13 +24,7 @@ Note that the Maven site is using the [Docs Maven Skin](https://github.com/Berna
 
 ## Features
 
-The project by default comes with a useful series of features:
-
-- Preconfigured POM to begin developing a new library fast.
-- Prepared for [Travis CI](https://travis-ci.org/), including configuration files and deployment scripts. Check the [Archetype documentation](http://docs.bernardomg.com/maven/library-maven-archetype) to find out more.
-- Unit and integration tests suites ready to be run with [JUnit](http://junit.org) just by using the Maven test and verify commands.
-- A Maven site, using the [Docs Maven Skin](https://github.com/Bernardo-MG/docs-maven-skin), to contain the documentation, the Javadocs and several reports.
-- A bunch of useful files, such as readme, gitignore and gitattributes.
+- Executable JAR using only Maven
 
 ## Documentation
 
@@ -95,12 +90,12 @@ If you wish to fork or modify the code, visit the [GitHub project page][scm], wh
 
 The project has been released under the [MIT License][license].
 
-[bintray-repo]: https://bintray.com/bernardo-mg/maven/command-line-executable-jar/view
-[maven-repo]: http://mvnrepository.com/artifact/com.bernardomg.example/command-line-executable-jar
-[issues]: https://github.com/bernardo-mg/command-line-executable-jar/issues
-[javadoc-develop]: http://docs.bernardomg.com/development/maven/command-line-executable-jar/command-line-executable-jar/apidocs
-[javadoc-release]: http://docs.bernardomg.com/maven/command-line-executable-jar/command-line-executable-jar/apidocs
+[bintray-repo]: https://bintray.com/bernardo-mg/maven/maven-executable-jar-example/view
+[maven-repo]: http://mvnrepository.com/artifact/com.bernardomg.example/maven-executable-jar-example
+[issues]: https://github.com/bernardo-mg/maven-executable-jar-example/issues
+[javadoc-develop]: http://docs.bernardomg.com/development/maven/maven-executable-jar-example/apidocs
+[javadoc-release]: http://docs.bernardomg.com/maven/maven-executable-jar-example/apidocs
 [license]: https://www.opensource.org/licenses/mit-license.php
-[scm]: https://github.com/bernardo-mg/command-line-executable-jar
-[site-develop]: http://docs.bernardomg.com/development/maven/command-line-executable-jar/command-line-executable-jar
-[site-release]: http://docs.bernardomg.com/maven/command-line-executable-jar/command-line-executable-jar
+[scm]: https://github.com/bernardo-mg/maven-executable-jar-example
+[site-develop]: http://docs.bernardomg.com/development/maven/maven-executable-jar-example
+[site-release]: http://docs.bernardomg.com/maven/maven-executable-jar-example

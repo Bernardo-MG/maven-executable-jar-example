@@ -3,7 +3,7 @@
 <Configuration status="WARN" shutdownHook="disable">
 
    <Properties>
-      <Property name="filename">testing.log</Property>
+      <Property name="filename">app.log</Property>
    </Properties>
 
    <Appenders>
@@ -19,7 +19,7 @@
    <Loggers>
       <!-- Application log -->
       <Logger name="com.bernardomg.example" level="debug" additivity="false">
-         <AppenderRef ref="file" />
+         <AppenderRef ref="console" />
       </Logger>
 
       <Root level="error">
