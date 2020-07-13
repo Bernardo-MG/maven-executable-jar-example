@@ -48,29 +48,6 @@ $ mvn verify site
 
 The verify phase is required, otherwise some of the reports won't be generated.
 
-## Usage
-
-The application is coded in Java, using Maven to manage the project.
-
-It is a Java library, meant to be included as a dependency on any project which may want to make use of it.
-
-### Prerequisites
-
-The project has been tested on the following Java versions:
-* JDK 8
-
-All other dependencies are handled through Maven, and noted in the included POM file.
-
-### Installing
-
-The recommended way to install the project is by setting it up as a dependency. To get the configuration information for this check the [Bintray repository][bintray-repo], or the [Maven Central Repository][maven-repo].
-
-It is always possible installing it by using the usual Maven command:
-
-```
-$ mvn install
-```
-
 ## Collaborate
 
 Any kind of help with the project will be well received, and there are two main ways to give such help:
@@ -90,8 +67,6 @@ If you wish to fork or modify the code, visit the [GitHub project page][scm], wh
 
 The project has been released under the [MIT License][license].
 
-[bintray-repo]: https://bintray.com/bernardo-mg/maven/maven-executable-jar-example/view
-[maven-repo]: http://mvnrepository.com/artifact/com.bernardomg.example/maven-executable-jar-example
 [issues]: https://github.com/bernardo-mg/maven-executable-jar-example/issues
 [javadoc-develop]: http://docs.bernardomg.com/development/maven/maven-executable-jar-example/apidocs
 [javadoc-release]: http://docs.bernardomg.com/maven/maven-executable-jar-example/apidocs

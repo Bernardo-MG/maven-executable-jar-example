@@ -20,7 +20,7 @@
 
    <groupId>com.bernardomg.example</groupId>
    <artifactId>maven-executable-jar-example</artifactId>
-   <version>1.0.0</version>
+   <version>1.0.1</version>
    <packaging>jar</packaging>
 
    <name>Maven Executable JAR Example</name>
@@ -187,6 +187,11 @@
       <!-- ================= MAVEN SITE ================= -->
       <!-- ============================================== -->
       <site.skin.version>2.0.7</site.skin.version>
+      <!-- ============================================== -->
+      <!-- ================= EXECUTABLE ================= -->
+      <!-- ============================================== -->
+      <main.path>com.bernardomg.example.maven.execjar.Main</main.path>
+      <exec.file.name>executable</exec.file.name>
    </properties>
 
    <!-- ********************************************** -->
@@ -312,7 +317,7 @@
                   <index>true</index>
                   <manifest>
                      <addClasspath>true</addClasspath>
-                     <mainClass>com.bernardomg.example.maven.execjar.Main</mainClass>
+                     <mainClass>${main.path}</mainClass>
                   </manifest>
                </archive>
             </configuration>
@@ -327,13 +332,23 @@
                      <goal>shade</goal>
                   </goals>
                   <configuration>
-                     <finalName>executable</finalName>
+                     <finalName>${exec.file.name}</finalName>
                      <shadedArtifactAttached>true</shadedArtifactAttached>
                      <transformers>
                         <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                           <mainClass>com.bernardomg.example.maven.execjar.Main</mainClass>
+                           <mainClass>${main.path}</mainClass>
                         </transformer>
                      </transformers>
+                     <filters>
+                        <filter>
+                           <artifact>*:*</artifact>
+                           <excludes>
+                              <exclude>META-INF/*.SF</exclude>
+                              <exclude>META-INF/*.DSA</exclude>
+                              <exclude>META-INF/*.RSA</exclude>
+                           </excludes>
+                        </filter>
+                     </filters>
                   </configuration>
                </execution>
             </executions>
