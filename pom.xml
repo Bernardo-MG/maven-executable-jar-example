@@ -25,7 +25,7 @@
 
    <name>Maven Executable JAR Example</name>
    <description>An example for setting up an executable JAR with Maven</description>
-   <url>https://github.com/bernardo-mg/command-line-executable-jar</url>
+   <url>https://github.com/bernardo-mg/maven-executable-jar-example</url>
    <inceptionYear>2020</inceptionYear>
 
    <licenses>
@@ -41,15 +41,15 @@
    <!-- ********************************************** -->
 
    <scm>
-      <connection>scm:git:https://github.com/bernardo-mg/command-line-executable-jar.git</connection>
-      <developerConnection>scm:git:https://github.com/bernardo-mg/command-line-executable-jar.git</developerConnection>
+      <connection>scm:git:https://github.com/bernardo-mg/maven-executable-jar-example.git</connection>
+      <developerConnection>scm:git:https://github.com/bernardo-mg/maven-executable-jar-example.git</developerConnection>
       <tag>head</tag>
-      <url>https://www.github.com/bernardo-mg/command-line-executable-jar</url>
+      <url>https://www.github.com/bernardo-mg/maven-executable-jar-example</url>
    </scm>
 
    <issueManagement>
       <system>GitHub</system>
-      <url>https://www.github.com/bernardo-mg/command-line-executable-jar/issues</url>
+      <url>https://www.github.com/bernardo-mg/maven-executable-jar-example/issues</url>
    </issueManagement>
 
    <ciManagement>
@@ -63,7 +63,7 @@
          <uniqueVersion>false</uniqueVersion>
          <id>releases</id>
          <name>Releases Repository</name>
-         <url>https://api.bintray.com/maven/bernardo-mg/maven/command-line-executable-jar</url>
+         <url>https://api.bintray.com/maven/bernardo-mg/maven/maven-executable-jar-example</url>
       </repository>
       <snapshotRepository>
          <uniqueVersion>false</uniqueVersion>
