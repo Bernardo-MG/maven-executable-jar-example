@@ -24,7 +24,7 @@
    <packaging>jar</packaging>
 
    <name>Maven Executable JAR Example</name>
-   <description>An example for setting up an executable JAR</description>
+   <description>An example for setting up an executable JAR with Maven</description>
    <url>https://github.com/bernardo-mg/command-line-executable-jar</url>
    <inceptionYear>2020</inceptionYear>
 
