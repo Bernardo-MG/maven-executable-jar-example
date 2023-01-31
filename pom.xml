@@ -122,14 +122,14 @@
       <!-- ============================================== -->
       <!-- =========== DEPENDENCIES VERSIONS ============ -->
       <!-- ============================================== -->
-      <junit.jupiter.version>5.6.2</junit.jupiter.version>
-      <mockito.version>3.3.3</mockito.version>
-      <log4j.version>2.13.3</log4j.version>
-      <slf4j.version>1.7.30</slf4j.version>
+      <junit.jupiter.version>5.9.1</junit.jupiter.version>
+      <mockito.version>4.9.0</mockito.version>
+      <log4j.version>2.19.0</log4j.version>
+      <slf4j.version>2.0.3</slf4j.version>
       <!-- ============================================== -->
       <!-- ============== PLUGINS VERSIONS ============== -->
       <!-- ============================================== -->
-      <plugin.shade.version>3.2.4</plugin.shade.version>
+      <plugin.shade.version>3.4.1</plugin.shade.version>
       <!-- ============================================== -->
       <!-- ============ PLUGIN CONFIGURATION ============ -->
       <!-- ============================================== -->
@@ -180,7 +180,7 @@
       <dependency>
          <!-- Log4j SLF4J Bridge -->
          <groupId>org.apache.logging.log4j</groupId>
-         <artifactId>log4j-slf4j-impl</artifactId>
+         <artifactId>log4j-slf4j2-impl</artifactId>
          <version>${log4j.version}</version>
       </dependency>
       <dependency>
