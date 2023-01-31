@@ -7,7 +7,7 @@
     <body>
         <release version="1.0.0" date="2020-07-12" description="First release">
             <action dev="bmg" type="update">
-                First release of the library.
+                First release of the example.
             </action>
         </release>
         <release version="1.0.1" date="2020-07-13" description="Small fixes">
@@ -18,6 +18,11 @@
         <release version="1.0.2" date="2020-07-17" description="Small fixes">
             <action dev="bmg" type="fix">
                 Several small corrections.
+            </action>
+        </release>
+        <release version="1.0.3" date="2023-01-31" description="Updated dependencies">
+            <action dev="bmg" type="update">
+                Updated dependencies.
             </action>
         </release>
     </body>
