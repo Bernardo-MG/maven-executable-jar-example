@@ -21,11 +21,20 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+
 package com.bernardomg.example.maven.execjar;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+/**
+ * Main entry. This is what makes the project executable.
+ * <p>
+ * All it does is printing to the log.
+ *
+ * @author Bernardo Mart&iacute;nez Garrido
+ *
+ */
 public class Main {
 
     /**
@@ -33,12 +42,21 @@ public class Main {
      */
     private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
 
-    public Main() {
-        super();
-    }
-
+    /**
+     * Main method. This will be executed when running th project.
+     *
+     * @param args
+     *            execution arguments
+     */
     public static void main(final String[] args) {
         LOGGER.info("Executed correctly");
+    }
+
+    /**
+     * Default constructor.
+     */
+    public Main() {
+        super();
     }
 
 }
