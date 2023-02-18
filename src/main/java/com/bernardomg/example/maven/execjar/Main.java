@@ -24,8 +24,7 @@
 
 package com.bernardomg.example.maven.execjar;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * Main entry. This is what makes the project executable.
@@ -35,12 +34,8 @@ import org.slf4j.LoggerFactory;
  * @author Bernardo Mart&iacute;nez Garrido
  *
  */
+@Slf4j
 public class Main {
-
-    /**
-     * Logger.
-     */
-    private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
 
     /**
      * Main method. This will be executed when running th project.
@@ -49,7 +44,7 @@ public class Main {
      *            execution arguments
      */
     public static void main(final String[] args) {
-        LOGGER.info("Executed correctly");
+        log.info("Executed correctly");
     }
 
     /**
