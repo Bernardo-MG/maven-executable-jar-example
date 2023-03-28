@@ -50,7 +50,7 @@ public class Main {
     /**
      * Default constructor.
      */
-    public Main() {
+    private Main() {
         super();
     }
 
