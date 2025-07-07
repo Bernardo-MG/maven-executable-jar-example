@@ -11,7 +11,7 @@
    <parent>
       <groupId>com.bernardomg.maven</groupId>
       <artifactId>base-pom</artifactId>
-      <version>1.5.3</version>
+      <version>1.5.11</version>
    </parent>
 
    <!-- ********************************************** -->
@@ -59,33 +59,6 @@
    </ciManagement>
 
    <!-- ********************************************** -->
-   <!-- ****************** PROFILES ****************** -->
-   <!-- ********************************************** -->
-
-   <profiles>
-      <!-- ============================================== -->
-      <!-- ============ DEPLOYMENT PROFILES ============= -->
-      <!-- ============================================== -->
-      <profile>
-         <!-- Site deployment profile -->
-         <!-- Sets the site repository to point to the releases repo -->
-         <id>deployment-site</id>
-         <activation>
-            <!-- Active by default so the repository appears in the reports -->
-            <activeByDefault>true</activeByDefault>
-         </activation>
-         <distributionManagement>
-            <site>
-               <id>site</id>
-               <name>Project Documentation Site</name>
-               <!-- The URL should be set externally -->
-               <url>${site.url}</url>
-            </site>
-         </distributionManagement>
-      </profile>
-   </profiles>
-
-   <!-- ********************************************** -->
    <!-- *********** ORGANIZATION AND MEMBERS ********* -->
    <!-- ********************************************** -->
 
@@ -122,11 +95,10 @@
       <!-- ============================================== -->
       <!-- =========== DEPENDENCIES VERSIONS ============ -->
       <!-- ============================================== -->
-      <junit.jupiter.version>5.9.1</junit.jupiter.version>
-      <lombok.version>1.18.26</lombok.version>
-      <mockito.version>4.9.0</mockito.version>
-      <log4j.version>2.19.0</log4j.version>
-      <slf4j.version>2.0.3</slf4j.version>
+      <junit.jupiter.version>5.13.3</junit.jupiter.version>
+      <mockito.version>5.18.0</mockito.version>
+      <log4j.version>2.25.0</log4j.version>
+      <slf4j.version>2.0.17</slf4j.version>
       <!-- ============================================== -->
       <!-- ============== PLUGINS VERSIONS ============== -->
       <!-- ============================================== -->
@@ -139,7 +111,7 @@
       <!-- ============================================== -->
       <!-- ================= MAVEN SITE ================= -->
       <!-- ============================================== -->
-      <site.skin.version>2.3.2</site.skin.version>
+      <site.skin.version>2.4.1</site.skin.version>
       <!-- ============================================== -->
       <!-- ================= EXECUTABLE ================= -->
       <!-- ============================================== -->
@@ -165,16 +137,6 @@
    </dependencyManagement>
 
    <dependencies>
-      <!-- ============================================== -->
-      <!-- ================== LOMBOK ==================== -->
-      <!-- ============================================== -->
-      <dependency>
-         <!-- Lombok -->
-         <groupId>org.projectlombok</groupId>
-         <artifactId>lombok</artifactId>
-         <version>${lombok.version}</version>
-         <scope>provided</scope>
-      </dependency>
       <!-- ============================================== -->
       <!-- ================== LOGGERS =================== -->
       <!-- ============================================== -->
