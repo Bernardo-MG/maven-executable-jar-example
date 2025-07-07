@@ -30,5 +30,10 @@
                 Fixed manifest related issues.
             </action>
         </release>
+        <release version="1.0.5" date="2023-07-08" description="Updated dependencies">
+            <action dev="bmg" type="update">
+                Updated dependencies.
+            </action>
+        </release>
     </body>
 </document>

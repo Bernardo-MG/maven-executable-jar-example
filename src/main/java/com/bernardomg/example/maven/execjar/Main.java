@@ -1,7 +1,7 @@
 /**
  * The MIT License (MIT)
  * <p>
- * Copyright (c) 2020-2023 the original author or authors.
+ * Copyright (c) 2020-2025 the original author or authors.
  * <p>
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,7 +24,8 @@
 
 package com.bernardomg.example.maven.execjar;
 
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Main entry. This is what makes the project executable.
@@ -34,8 +35,12 @@ import lombok.extern.slf4j.Slf4j;
  * @author Bernardo Mart&iacute;nez Garrido
  *
  */
-@Slf4j
 public class Main {
+
+    /**
+     * Logger for the class.
+     */
+    private static final Logger log = LoggerFactory.getLogger(Main.class);
 
     /**
      * Main method. This will be executed when running th project.
@@ -50,7 +55,7 @@ public class Main {
     /**
      * Default constructor.
      */
-    public Main() {
+    private Main() {
         super();
     }
 
